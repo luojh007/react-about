@@ -1,7 +1,6 @@
 
 const initState = {
   name: 'ljh',
-  userId: 111,
 }
 
 export const login = ( state = initState, action)=>{

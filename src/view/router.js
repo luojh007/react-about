@@ -85,11 +85,6 @@ export default function RootRouter(props) {
         component: Loadable({
           loader: () => import('./routes/ContextAPI'),
           loading: Loading,
-          render(loaded, props) {
-            let Comp = loaded.default;
-            console.log(props)
-            return <Comp {...props} />
-          }
         })
       },
       {

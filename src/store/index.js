@@ -7,7 +7,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
 const middleware = [
-  createLogger({ collapsed: true }),
+  //createLogger({ collapsed: true }),
   routerMiddleware(createHistory()),
 ]
 const store = createStore(Reducer,composeEnhancers(applyMiddleware(...middleware)))
