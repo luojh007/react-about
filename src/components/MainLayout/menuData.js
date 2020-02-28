@@ -23,5 +23,27 @@ export const menuData = [
     name: 'Diff比较算法',
     url: '/diff.html',
     key: '4'
-  }
+  },
+  {
+    name: '事件机制',
+    url: '/event-about.html',
+    key: '5'
+  },
+  {
+    name: 'context-api',
+    url: '/context-API.html',
+    key: '5'
+  },
+  {
+    name: 'require-import的区别',
+    url: '/export.html',
+    key: '5',
+    children: [{
+      name: 'require',
+      url: '/export-require.html'
+    }, {
+      name: 'import',
+      url: '/export-import.html'
+    }]
+  },
 ]

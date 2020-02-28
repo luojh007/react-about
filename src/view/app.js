@@ -5,10 +5,10 @@ export default class App extends Component {
   render() {
     const supportsHistory = 'pushState' in window.history;
     return (
-      <RouterContainer forceRefresh={!supportsHistory} >
-        <RootRouter /> 
+      <RouterContainer forceRefresh={!supportsHistory}>
+        <RootRouter {...this.props} />
       </RouterContainer>
     )
-  } 
+  }
 }
 

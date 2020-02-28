@@ -5,13 +5,13 @@ import ScrollToTop from '../components/ScrollToTop'
 import { Spin } from 'antd';
 import MainLayout from '../components/MainLayout/MainLayout'
 
-const Root = ({ route }) => (
-  <ScrollToTop>
+const Root = ({ route }, props) => {
+  return <ScrollToTop>
     <MainLayout>
-      {renderRoutes(route.routes)}
+      {renderRoutes(route.routes, props)}
     </MainLayout>
   </ScrollToTop>
-)
+}
 const Loading = ({ error, pastDelay }) => {
   if (error) {
     console.log(error);
@@ -26,10 +26,10 @@ const Loading = ({ error, pastDelay }) => {
     return null;
   }
 };
-function RootRouter() {
+export default function RootRouter(props) {
   const routes = [
     {
-      component: Root,
+      component: (routes) => Root(routes, props),
       routes: [{
         path: '/index.html',
         component: Loadable({
@@ -72,10 +72,42 @@ function RootRouter() {
           loader: () => import('./routes/Diff'),
           loading: Loading,
         })
-      }
+      },
+      {
+        path: '/event-about.html',
+        component: Loadable({
+          loader: () => import('./routes/EventAbout'),
+          loading: Loading,
+        })
+      },
+      {
+        path: '/context-api.html',
+        component: Loadable({
+          loader: () => import('./routes/ContextAPI'),
+          loading: Loading,
+          render(loaded, props) {
+            let Comp = loaded.default;
+            console.log(props)
+            return <Comp {...props} />
+          }
+        })
+      },
+      {
+        path: '/export-require.html',
+        component: Loadable({
+          loader: () => import('./routes/Export/Require'),
+          loading: Loading,
+        })
+      },
+      {
+        path: '/export-import.html',
+        component: Loadable({
+          loader: () => import('./routes/Export/Import'),
+          loading: Loading,
+        })
+      },
       ]
     }
   ]
-  return <div>{renderRoutes(routes)}</div>
+  return <div>{renderRoutes(routes, props)}</div>
 }
-export default RootRouter;
