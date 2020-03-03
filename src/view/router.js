@@ -101,6 +101,13 @@ export default function RootRouter(props) {
           loading: Loading,
         })
       },
+      {
+        path: '/promise-about.html',
+        component: Loadable({
+          loader: () => import('./routes/PromiseAbout'),
+          loading: Loading,
+        })
+      },    
       ]
     }
   ]
