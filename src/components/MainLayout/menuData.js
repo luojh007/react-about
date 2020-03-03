@@ -32,12 +32,12 @@ export const menuData = [
   {
     name: 'context-api',
     url: '/context-API.html',
-    key: '5'
+    key: '6'
   },
   {
     name: 'require-import的区别',
     url: '/export.html',
-    key: '5',
+    key: '7',
     children: [{
       name: 'require',
       url: '/export-require.html'
@@ -45,5 +45,9 @@ export const menuData = [
       name: 'import',
       url: '/export-import.html'
     }]
+  }, {
+    name: 'Promise对象',
+    url: '/promise-about.html',
+    key: '8'
   },
 ]
