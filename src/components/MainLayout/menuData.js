@@ -49,5 +49,9 @@ export const menuData = [
     name: 'Promise对象',
     url: '/promise-about.html',
     key: '8'
+  },{
+    name: '面向对象',
+    url: '/object-about.html',
+    key: '9'
   },
 ]

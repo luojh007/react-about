@@ -107,7 +107,15 @@ export default function RootRouter(props) {
           loader: () => import('./routes/PromiseAbout'),
           loading: Loading,
         })
+      }, 
+      {
+        path: '/object-about.html',
+        component: Loadable({
+          loader: () => import('./routes/ObjectAbout'),
+          loading: Loading,
+        })
       },    
+      
       ]
     }
   ]
