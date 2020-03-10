@@ -49,9 +49,19 @@ export const menuData = [
     name: 'Promise对象',
     url: '/promise-about.html',
     key: '8'
-  },{
+  }, {
     name: '面向对象',
     url: '/object-about.html',
+    key: '9'
+  },
+  {
+    name: '深拷贝',
+    url: '/deep-clone.html',
+    key: '9'
+  },
+  {
+    name: '自定义简单Promise源码',
+    url: '/my-promise.html',
     key: '9'
   },
 ]

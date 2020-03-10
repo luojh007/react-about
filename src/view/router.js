@@ -107,15 +107,35 @@ export default function RootRouter(props) {
           loader: () => import('./routes/PromiseAbout'),
           loading: Loading,
         })
-      }, 
+      },
       {
         path: '/object-about.html',
         component: Loadable({
           loader: () => import('./routes/ObjectAbout'),
           loading: Loading,
         })
-      },    
-      
+      },
+      {
+        path: '/my-promise.html',
+        component: Loadable({
+          loader: () => import('./routes/myPromise'),
+          loading: Loading,
+        })
+      },
+      {
+        path: '/deep-clone.html',
+        component: Loadable({
+          loader: () => import('./routes/DeepClone'),
+          loading: Loading,
+        })
+      },
+      {
+        path: '/my-promise.html',
+        component: Loadable({
+          loader: () => import('./routes/myPromise'),
+          loading: Loading,
+        })
+      },
       ]
     }
   ]

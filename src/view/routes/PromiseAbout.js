@@ -21,7 +21,7 @@ class myPromise {
       this.data = data;
       this.rejectCBArr.forEach(fn => fn());
     }
-    fn(resolve, reject);
+    fn(resolve, reject); //立即执行
   }
   then(resolveFn, rejectFn) {
     let promise2 = new Promise((resolve, reject) => {

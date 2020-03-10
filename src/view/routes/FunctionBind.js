@@ -8,7 +8,16 @@ export default class index extends Component {
     }
     this.dianji3 = this.dianji3.bind(this);
   }
+  testFunction() {
+
+  }
+    
   componentDidMount() {
+    // console.log(this.bind);
+    // this.testFunction._bind(this)
+    // Function.prototype._bind = function (obj, params) {
+
+    // }
   }
   dianji() {
     document.getElementById('thisStr').innerHTML = this
