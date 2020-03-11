@@ -15,13 +15,28 @@ module.exports = {
     //   : config.dev.assetsPublicPath
     publicPath: '/'
   },
+  resolveLoader: {
+    modules: [
+      path.resolve(__dirname, '../customLoader'),
+      'node_modules',
+    ]
+  },
   module: {
     rules: [
       {
         test: /\.js[x]?$/,
+        loader: 'replace-str',
+        query: {
+          preStr: 'llllllll',
+          newStr: 'new1111111'
+        }
+      },
+      {
+        test: /\.js[x]?$/,
         loader: "babel-loader",
         query: {
-          presets: ["@babel/preset-react"]
+          presets: ["@babel/preset-react"],
+          // cacheDirectory: path.resolve(process.cwd(), 'tmp')
         },
         include: [resolve("src")]
       },

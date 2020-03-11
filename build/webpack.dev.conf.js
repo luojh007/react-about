@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseWebpack = require('./webpack.base.conf')
 const merge = require('webpack-merge')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const BoneScreenPlugin =  require('../customPlugins/BoneScreen')
 function resolve(dir) {
   return path.join(__dirname, "..", dir);
 }
@@ -85,6 +86,7 @@ module.exports = merge(baseWebpack, {
       },
       clearConsole: true,
     }),
+    new  BoneScreenPlugin()
   ],
 }
 )

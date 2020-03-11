@@ -30,6 +30,7 @@ function zClone(oldObj) {
       if (key) {
         res = parent[key] = {};
       }
+      console.log(res, parent, parent[key])
       for (let i in data) {
         if (typeof data[i] === 'object') {
           loopList.push({
