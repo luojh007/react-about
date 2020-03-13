@@ -136,6 +136,28 @@ export default function RootRouter(props) {
           loading: Loading,
         })
       },
+      {
+        path: '/timer.html',
+        component: Loadable({
+          loader: () => import('./routes/Timer'),
+          loading: Loading,
+        })
+      },
+      {
+        path: '/sort.html',
+        component: Loadable({
+          loader: () => import('./routes/Sort'),
+          loading: Loading,
+        })
+      },
+      {
+        path: '/async-send-request.html',
+        component: Loadable({
+          loader: () => import('./routes/SyncSendRequest'),
+          loading: Loading,
+        })
+      },
+      
       ]
     }
   ]
