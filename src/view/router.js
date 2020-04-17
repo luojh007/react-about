@@ -60,9 +60,9 @@ export default function RootRouter(props) {
       }
         ,
       {
-        path: '/transaction-about.html',
+        path: '/fdjl.html',
         component: Loadable({
-          loader: () => import('./routes/TransactionAbout'),
+          loader: () => import('./routes/FdJl'),
           loading: Loading,
         })
       },
