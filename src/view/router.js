@@ -45,9 +45,9 @@ export default function RootRouter(props) {
         })
       },
       {
-        path: '/hock.html',
+        path: '/hook.html',
         component: Loadable({
-          loader: () => import('./routes/Hock'),
+          loader: () => import('./routes/Hook'),
           loading: Loading,
         })
       },
@@ -157,7 +157,13 @@ export default function RootRouter(props) {
           loading: Loading,
         })
       },
-      
+      {
+        path: '/css-about.html',
+        component: Loadable({
+          loader: () => import('./routes/CssAbout'),
+          loading: Loading,
+        })
+      },
       ]
     }
   ]

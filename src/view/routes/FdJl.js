@@ -22,18 +22,32 @@ function fd(fn, time) {
   }
 }
 //立即执行
+// function fdNow(fn, time) {
+//   let timer;
+//   return function () {
+//     let self = this;
+//     let arg = arguments;
+//     if (timer) clearTimeout(timer);
+//     let callNow = !timer
+//     timer = setTimeout(() => {
+//       timer = null
+//     }, time)
+
+//     if (callNow) fn.call(self, arg)
+//   }
+// }
 function fdNow(fn, time) {
+  let tag = true;
   let timer;
   return function () {
     let self = this;
     let arg = arguments;
     if (timer) clearTimeout(timer);
-    let callNow = !timer
-    timer = setTimeout(()=>{
-      timer = null
-    },time)
+    timer = setTimeout(() => {
+      tag = true;
+    }, time)
 
-    if(callNow) fn.call(self, arg)
+    if (tag) { fn.call(self, arg); tag = false };
   }
 }
 var count = 1;
@@ -41,9 +55,9 @@ function fn(e) {
   console.log(e)
   console.log(count++)
 }
-function click(){
+function click() {
   let a = 0;
-  return function(){
+  return function () {
     a++;
     console.log(a)
   }

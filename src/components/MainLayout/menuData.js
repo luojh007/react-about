@@ -5,8 +5,8 @@ export const menuData = [
     key: '1',
   },
   {
-    name: 'hock钩子',
-    url: '/hock.html',
+    name: 'hook钩子',
+    url: '/hook.html',
     key: '2',
   },
   {

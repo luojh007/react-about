@@ -27,8 +27,8 @@ function zClone(oldObj) {
       var key = node.key;
       var parent = node.parent;
       var res = parent;
-      if (key) {
-        res = parent[key] = {};
+      if (key !== undefined) {
+        res = parent[key] = (parent[key] instanceof Array) ? [] : {};
       }
       for (let i in data) {
         if (typeof data[i] === 'object') {
@@ -48,6 +48,24 @@ function zClone(oldObj) {
     return oldObj
   }
 }
+let arr = [1, [2, 3, 4, [55]]]
+
+function flat(arr) {
+  let res = [];
+  let fn = function (subArr) {
+    for (let it of subArr) {
+      if (it instanceof Array) {
+        fn(it);
+      } else {
+        res.push(it);
+      }
+    }
+  }
+  fn(arr);
+  return res;
+}
+console.log(flat(arr));
+
 export default class DeepClone extends Component {
   constructor(props) {
     super(props)
@@ -58,17 +76,26 @@ export default class DeepClone extends Component {
       b: 2
     }
     let obj2 = {
-      a: 1,
       b: {
         c: 2
-      }
+      },
+      a: {
+        e: {
+          q: 1
+        },
+        f: {
+          w: 2
+        }
+      },
+
     }
-    let clone1 = zClone(obj2);
-    let clone2 = zClone(obj2);
-    console.log(clone1, clone2)
-    clone2.b.c = 222
-    clone2.b.d = 22;
-    console.log(clone1, clone2)
+    // let clone1 = zClone(obj1);
+    // let clone2 = zClone(obj2);
+    // clone2.b.c = 222
+    // clone2.b.d = 22;
+    // console.log(clone1)
+
+    // console.log(obj1, obj2)
   }
   render() {
     return (
@@ -77,4 +104,40 @@ export default class DeepClone extends Component {
       </div>
     )
   }
+}
+
+
+function deepClone(data) {
+  if (typeof data != 'object') { return data }
+  let root = {};
+  let loop = [
+    {
+      data: data,
+      parent: root,
+      key: undefined
+    }
+  ]
+  while (loop.length) {
+    let node = loop.pop();
+    let parent = node.parent;
+    let data = node.data;
+    let key = node.key;  //在父元素中的key
+    //跟节点
+    let res = parent;
+    if (key !== undefined) {
+      res = parent[key] = {};
+    }
+    for (let i in data) {
+      if (typeof data[i] === 'object') {
+        loop.push({
+          data: data[i],
+          parent: res,
+          key: i
+        })
+      } else {
+        res[i] = data[i];
+      }
+    }
+  }
+  return root;
 }
