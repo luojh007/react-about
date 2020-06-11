@@ -164,6 +164,13 @@ export default function RootRouter(props) {
           loading: Loading,
         })
       },
+      {
+        path: '/es6.html',
+        component: Loadable({
+          loader: () => import('./routes/ES6'),
+          loading: Loading,
+        })
+      },
       ]
     }
   ]

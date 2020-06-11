@@ -1,6 +1,24 @@
 import React, { Component } from 'react'
 import { Button } from 'antd';
 
+class SubClass extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: props.data
+    }
+  }
+  componentDidMount(){
+    console.log('子组件挂载完成')
+  }
+  render() {
+    console.log('子组件渲染');
+    return <div>
+      我是子组件：父组件传的值是：{this.state.data}
+    </div>
+  }
+}
+
 export default class LifeCycle extends Component {
   constructor(props) {
     super(props);
@@ -68,6 +86,8 @@ export default class LifeCycle extends Component {
           <div>非react包装的事件处理同步{syncCount}</div>
           <div>react包装的事件处理异步{asyncCount}</div>
         </div>
+
+        <SubClass data='父组件传值' />
       </div>
     )
   }

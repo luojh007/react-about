@@ -77,7 +77,7 @@ function minMaxWait(promise, min, max) {
           clearTimeout(t)
           resolve('min后返回' + res);
         }, min - (nowTime - startTime))
-      } 
+      }
       else {
         clearTimeout(t)
         resolve('min~max返回：' + res)
@@ -139,6 +139,12 @@ foo()
 export default class MyPromise extends Component {
   constructor(props) {
     super(props)
+    let promise = new Promise((res, rej) => {
+      setTimeout(() => {
+        res();
+      }, 100)
+    });
+
   }
   componentDidMount() {
   }

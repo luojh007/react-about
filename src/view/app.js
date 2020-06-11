@@ -6,9 +6,10 @@ export default class App extends Component {
     const supportsHistory = 'pushState' in window.history;
     return (
       <RouterContainer forceRefresh={!supportsHistory}>
-        <RootRouter {...this.props} />
+        <RootRouter  {...this.props} />
       </RouterContainer>
     )
   }
 }
+ 
 

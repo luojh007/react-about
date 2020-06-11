@@ -1,13 +1,15 @@
 import React, { Component, useState } from 'react'
-
+import SubOne from '../../components/SubOne'
+import PropTypes from 'prop-types'
 class SubC extends Component {
   constructor(props) {
-    super(props)
+    super(props)    
   }
   render() {
     console.log(this.props)
     return <div>
       我是子组件1
+      <SubOne/>
     </div>
   }
 }
@@ -29,14 +31,16 @@ function hoc() {
 }
 //使用
 const HeightComponent = hoc()(SubC)
+
 class Hook extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(props)
   }
-  render() {
+  render() {    
     return <HeightComponent />
 
   }
 }
+
 export default Hook
