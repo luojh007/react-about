@@ -171,6 +171,13 @@ export default function RootRouter(props) {
           loading: Loading,
         })
       },
+      {
+        path: '/curry.html',
+        component: Loadable({
+          loader: () => import('./routes/Curry'),
+          loading: Loading,
+        })
+      },
       ]
     }
   ]
