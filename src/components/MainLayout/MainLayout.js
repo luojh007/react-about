@@ -35,7 +35,7 @@ class MainLayout extends Component {
   render() {
     return <div className={styles.all}>
       <div className={styles.head}>
-        ssssssssss
+        React 源码研究
       </div>
       <div className={styles.body}>
         {this.renderMenu()}
