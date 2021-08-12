@@ -26,7 +26,7 @@ const Loading = ({ error, pastDelay }) => {
     return null;
   }
 };
-export default function RootRouter(props) {
+export default function RootRouter (props) {
   const routes = [
     {
       component: (routes) => Root(routes, props),
@@ -41,6 +41,27 @@ export default function RootRouter(props) {
         path: '/hooks.html',
         component: Loadable({
           loader: () => import('./routes/hooks'),
+          loading: Loading,
+        })
+      },
+      {
+        path: '/render-props.html',
+        component: Loadable({
+          loader: () => import('./routes/renderProps'),
+          loading: Loading,
+        })
+      },
+      {
+        path: '/hoc.html',
+        component: Loadable({
+          loader: () => import('./routes/hoc'),
+          loading: Loading,
+        })
+      },
+      {
+        path: '/use-hooks.html',
+        component: Loadable({
+          loader: () => import('./routes/useHooks'),
           loading: Loading,
         })
       }
