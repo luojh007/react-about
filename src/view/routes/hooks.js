@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Select, Spin } from 'antd'
-import useFriendStatus from '../../hooks/useFriendStatus'
 export default function Hooks () {
     const [firend, setFriend] = useState()
 
@@ -16,4 +15,14 @@ export default function Hooks () {
             {isOnline > 0 ? 'online' : 'offline'}
         </Spin>
     </div>
+}
+function useFriendStatus (friendId) {
+    const [isOnline, setIsOnline] = useState(null)
+    useEffect(() => {
+        setIsOnline(null)
+        setTimeout(() => {
+            setIsOnline(friendId > 0)
+        },400)
+    }, [friendId])
+    return isOnline
 }
